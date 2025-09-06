@@ -35,11 +35,13 @@ print("Hello, DevOps!")
 **Output:** `scripts/sysinfo.sh` tested and working.
 
 ```bash
-#!/bin/bash
-echo "Current user: $(whoami)"
-echo "Current date: $(date)"
-echo "Disk usage:"
+!/bin/bash
+echo "------START------"
+echo "User: $(whoami)"
+echo "Date: $(date)"
+echo "Disk usage (in human readable format):"
 df -h
+echo "------END------"
 ```
 
 ### 3. Docker Basics
@@ -49,8 +51,9 @@ df -h
 - Built and ran the container locally:
 
 ```bash
-docker build -t hello-devops .
-docker run --rm hello-devops
+docker build -t devops-intern-hello:latest .
+docker run -d --name my-sample-app1 devops-intern-hello:latest
+docker logs 1702db8d0f66dd72b980
 ```
 
 ### 4. CI/CD with GitHub Actions
@@ -63,18 +66,29 @@ docker run --rm hello-devops
 
 ```yaml
 # .github/workflows/ci.yml
+
 name: CI
-on: [push]
+on:
+  push:
+  pull_request:
 
 jobs:
   build:
+    name: Run hello.py
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setting up Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11
+          python-version: '3.11'
+
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+
       - name: Run hello.py
         run: python hello.py
 ```
@@ -88,12 +102,12 @@ jobs:
 **Run the job:**
 
 ```bash
-nomad job run nomad/hello.nomad
+nomad job run hello.nomad
 ```
 
 **Nomad file:**
 
-```yaml
+```nomad
 job "hello" {
   datacenters = ["dc1"]
   type        = "service"
@@ -113,6 +127,15 @@ job "hello" {
     }
   }
 }
+```
+
+**Updated Python file:**
+I have updated the python file because the deployment was becoming failed everytime as the container start and stops suddenly, so I used ```sleep()``` funtion to maintain the deployment for 60 seconds.
+```python
+import time
+print("Hello DevOps!")
+while True:
+  time.sleep(60)
 ```
 
 ### 6. Monitoring with Grafana Loki
