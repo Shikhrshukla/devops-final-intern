@@ -130,7 +130,7 @@ job "hello" {
 ```
 
 **Updated Python file:**
-I have updated the python file because the deployment was becoming failed everytime as the container start and stops suddenly, so I used ```sleep()``` funtion to maintain the deployment for 60 seconds.
+I have updated the python file because the deployment was becoming failed everytime as the container starts it stops suddenly, so I used ```sleep()``` funtion to maintain the deployment for 60 seconds.
 ```python
 import time
 print("Hello DevOps!")
@@ -140,8 +140,15 @@ while True:
 
 ### 6. Monitoring with Grafana Loki
 
-- Configured Loki using a local Docker container.
-- Set up **Promtail** to forward logs from Docker/Nomad containers to Loki.
+**My Goal:**
+I want to collect all the logs from my different Docker containers in one place. To do this, I used two programs: Loki and Promtail. Loki is like the main database where all the logs are stored. I can access it on port 3100. Promtail is a small helper program, its only job is to watch my log files and send everything it finds to Loki.
+**Setup:**
+I set it up using docker-compose for both programs and wrote a compose file (docker-compose.yml) that I already pushed to the hub. Then I configured Promtail with a small config file (promtail-config.yml). In this file, I told it two things: where my Loki server is and which log files to watch. I set the path to ```/var/lib/docker/containers/*/*-json.log``` to make sure it grabs logs from every container I run.
+**Step to Run:**
+I just run the command ```docker-compose up -d```, Once everything is up, I can pull logs directly from Loki using a curl command: ```curl "http://localhost:3100/loki/api/v1/query_range?query=%7Bjob%3D%22docker%22%7D&limit=5"``` Earlier, a simpler query was throwing an error, so I got help from ChatGPT to get the accurate query.
+**The Simple Workflow:**
+Promtail watches for new logs. It then sends them to Loki. Loki stores them, and I can search or query them anytime I want.
+
 
 **Logs viewing command:**
 
