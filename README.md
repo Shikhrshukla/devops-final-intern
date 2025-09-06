@@ -176,7 +176,7 @@ services:
     command: -config.file=/etc/promtail/config.yml
 ```
 
-**Promtail configs:**
+**Promtail config:**
 
 ```yaml
 server:
