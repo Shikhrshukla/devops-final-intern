@@ -30,8 +30,6 @@ echo "Hello, DevOps!"
 
 <img width="1920" height="1080" alt="2git" src="https://github.com/user-attachments/assets/4d7d4b47-855e-43cc-bdc3-9a5397820863" />
 
-<img width="1920" height="1080" alt="4git" src="https://github.com/user-attachments/assets/d472ae84-c9de-416b-8c3e-3687d98d8976" />
-
 ---
 
 ### 2. Linux & Scripting Basics
