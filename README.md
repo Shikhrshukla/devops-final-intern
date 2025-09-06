@@ -1,7 +1,7 @@
 # DevOps Intern Final Project
 
 **Name:** Shikhar Shukla  
-**Date:** 6th Sept 2025  
+**Date:** 7th Sept 2025  
 
 ---
 
@@ -30,10 +30,19 @@ echo "Hello, DevOps!"
 
 <img width="1920" height="1080" alt="2git" src="https://github.com/user-attachments/assets/4d7d4b47-855e-43cc-bdc3-9a5397820863" />
 
-#### Run
+#### Run Script
 ```linux
-git clone https://github.com/<your-username>/devops-intern-final.git
+git clone https://github.com/Shikhrshukla/devops-final-intern.git
 cd devops-intern-final
+chmod +x hello.sh
+./hello.sh
+```
+
+#### Run Python
+```linux
+git clone https://github.com/Shikhrshukla/devops-final-intern.git
+cd devops-intern-final
+python hello.py
 ```
 ---
 
@@ -60,6 +69,13 @@ echo "------END------"
 
 <img width="1920" height="1080" alt="1linux" src="https://github.com/user-attachments/assets/177eb354-49ea-40de-9426-7da016763668" />
 
+#### Run
+```linux
+git clone https://github.com/Shikhrshukla/devops-final-intern.git
+cd devops-intern-final/scripts
+chmod +x sysinfo.sh
+./sysinfo.sh
+```
 ---
 
 ### 3. Docker Basics
@@ -86,6 +102,14 @@ docker logs 1702db8d0f66dd72b980
 
 <img width="1920" height="1080" alt="2docker" src="https://github.com/user-attachments/assets/a09be14e-f30a-4c37-99ca-f19e09729f0f" />
 
+#### Run
+```linux
+git clone https://github.com/Shikhrshukla/devops-final-intern.git
+cd devops-intern-final
+docker build -t devops-intern-hello:latest .
+docker run -d --name my-sample-app1 devops-intern-hello:latest
+docker logs -f my-sample-app1
+```
 ---
 
 ### 4. CI/CD with GitHub Actions
@@ -127,6 +151,12 @@ jobs:
 
 <img width="1920" height="1080" alt="2action" src="https://github.com/user-attachments/assets/14751b7c-33db-4b80-af0f-2009756f0c54" />
 
+#### Run
+```text
+1. Fork the Repositry, then go to Actions
+2. Select Action File
+3. Run/Re-run the job
+```
 ---
 
 ### 5. Job Deployment with Nomad
@@ -179,6 +209,13 @@ while True:
 
 <img width="1920" height="1080" alt="7nomad" src="https://github.com/user-attachments/assets/11550ef6-5f63-458f-abc7-7e957961a80f" />
 
+#### Run
+```linux
+git clone https://github.com/Shikhrshukla/devops-final-intern.git
+cd devops-intern-final/nomad
+nomad job run hello.nomad
+nomad status hello
+```
 ---
 
 ### 6. Monitoring with Grafana Loki
@@ -245,4 +282,21 @@ scrape_configs:
 
 <img width="1920" height="1080" alt="5mon" src="https://github.com/user-attachments/assets/be83aace-dfde-412a-9990-37b4373947f8" />
 
+
+#### Run
+```linux
+git clone https://github.com/Shikhrshukla/devops-final-intern.git
+cd devops-intern-final/monitoring
+
+# start services with detach mode
+docker-compose up -d
+# list running containers
+
+docker-compose ps
+# or
+docker ps
+
+# use query for container logs with limit 5
+curl "http://localhost:3100/loki/api/v1/query_range?query=%7Bjob%3D%22docker%22%7D&limit=5"
+```
 ---
