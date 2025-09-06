@@ -81,8 +81,6 @@ docker run -d --name my-sample-app1 devops-intern-hello:latest
 docker logs 1702db8d0f66dd72b980
 ```
 
-<img width="1920" height="1080" alt="1docker" src="https://github.com/user-attachments/assets/9acf383a-58ef-4d4d-a0f1-6de8d330dc24" />
-
 <img width="1920" height="1080" alt="2docker" src="https://github.com/user-attachments/assets/a09be14e-f30a-4c37-99ca-f19e09729f0f" />
 
 ---
@@ -123,7 +121,6 @@ jobs:
       - name: Run hello.py
         run: python hello.py
 ```
-<img width="1920" height="1080" alt="1action" src="https://github.com/user-attachments/assets/cf4c0712-ed27-4170-b101-174716bab8ea" />
 
 <img width="1920" height="1080" alt="2action" src="https://github.com/user-attachments/assets/14751b7c-33db-4b80-af0f-2009756f0c54" />
 
@@ -173,8 +170,6 @@ print("Hello DevOps!")
 while True:
   time.sleep(60)
 ```
-<img width="1920" height="1080" alt="2nomad" src="https://github.com/user-attachments/assets/bfe5d19f-53f3-43dc-9c9a-1194257cd4d8" />
-
 <img width="1920" height="1080" alt="3nomad" src="https://github.com/user-attachments/assets/020c3d1d-85cd-4cbf-a837-18990ea1d993" />
 
 <img width="1920" height="1080" alt="6nomad" src="https://github.com/user-attachments/assets/a14320df-f2cf-4ac2-ada8-5f2ddcdaa5f1" />
