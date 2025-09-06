@@ -142,16 +142,59 @@ while True:
 
 **My Goal:**
 I want to collect all the logs from my different Docker containers in one place. To do this, I used two programs: Loki and Promtail. Loki is like the main database where all the logs are stored. I can access it on port 3100. Promtail is a small helper program, its only job is to watch my log files and send everything it finds to Loki.
+
 **Setup:**
 I set it up using docker-compose for both programs and wrote a compose file (docker-compose.yml) that I already pushed to the hub. Then I configured Promtail with a small config file (promtail-config.yml). In this file, I told it two things: where my Loki server is and which log files to watch. I set the path to ```/var/lib/docker/containers/*/*-json.log``` to make sure it grabs logs from every container I run.
+
 **Step to Run:**
 I just run the command ```docker-compose up -d```, Once everything is up, I can pull logs directly from Loki using a curl command: ```curl "http://localhost:3100/loki/api/v1/query_range?query=%7Bjob%3D%22docker%22%7D&limit=5"``` Earlier, a simpler query was throwing an error, so I got help from ChatGPT to get the accurate query.
+
 **The Simple Workflow:**
 Promtail watches for new logs. It then sends them to Loki. Loki stores them, and I can search or query them anytime I want.
 
 
-**Logs viewing command:**
+**Docker Compose File:**
 
-```bash
-curl "http://localhost:3100/loki/api/v1/query_range?query=%7Bjob%3D%22docker%22%7D&limit=5"
+```yaml
+version: "3.8"
+
+services:
+  loki:
+    image: grafana/loki:2.9.2
+    container_name: loki
+    ports:
+      - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+
+  promtail:
+    image: grafana/promtail:2.9.2
+    container_name: promtail
+    volumes:
+      - /var/log:/var/log
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - ./promtail-config.yml:/etc/promtail/config.yml
+    command: -config.file=/etc/promtail/config.yml
+```
+
+**Promtail configs:**
+
+```yaml
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+positions:
+  filename: /tmp/positions.yaml
+
+scrape_configs:
+  - job_name: docker
+    static_configs:
+      - targets:
+          - localhost
+        labels:
+          job: docker
+          __path__: /var/lib/docker/containers/*/*-json.log
 ```
