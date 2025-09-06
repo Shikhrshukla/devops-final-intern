@@ -212,7 +212,8 @@ while True:
 
 #### Run
 ```linux
-# Make sure you have installed and configured both nomad & docker locally
+# Make sure you have installed and configured both nomad & docker locally so that 
+
 git clone https://github.com/Shikhrshukla/devops-final-intern.git
 cd devops-intern-final/nomad
 nomad job run hello.nomad
@@ -283,7 +284,6 @@ scrape_configs:
 <img width="1920" height="1080" alt="2mon" src="https://github.com/user-attachments/assets/fef50b26-dd3d-4ab1-afaf-ceaf775fe2ae" />
 
 <img width="1920" height="1080" alt="5mon" src="https://github.com/user-attachments/assets/be83aace-dfde-412a-9990-37b4373947f8" />
-
 
 #### Run
 ```linux
