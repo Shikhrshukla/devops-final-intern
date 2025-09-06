@@ -1,5 +1,5 @@
 My Goal:
-I want to collect all the logs from my different Docker containers in one place. To do this, I used two programs: Loki and Promtail. Loki is like the main database where all the logs are stored. I can access it on port 3100. Promtail is a small helper program — its only job is to watch my log files and send everything it finds to Loki.
+I want to collect all the logs from my different Docker containers in one place. To do this, I used two programs: Loki and Promtail. Loki is like the main database where all the logs are stored. I can access it on port __3100__. Promtail is a small helper program — its only job is to watch my log files and send everything it finds to Loki.
 
 Setup:
 I set it up using docker-compose for both programs and wrote a compose file (docker-compose.yml) that I already pushed to the hub. Then I configured Promtail with a small config file (promtail-config.yml). In this file, I told it two things: where my Loki server is and which log files to watch. I set the path to /var/lib/docker/containers/*/*-json.log to make sure it grabs logs from every container I run.
