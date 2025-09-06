@@ -30,6 +30,11 @@ echo "Hello, DevOps!"
 
 <img width="1920" height="1080" alt="2git" src="https://github.com/user-attachments/assets/4d7d4b47-855e-43cc-bdc3-9a5397820863" />
 
+#### Run
+```linux
+git clone https://github.com/<your-username>/devops-intern-final.git
+cd devops-intern-final
+```
 ---
 
 ### 2. Linux & Scripting Basics
