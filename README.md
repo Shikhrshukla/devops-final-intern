@@ -28,6 +28,10 @@ print("Hello, DevOps!")
 echo "Hello, DevOps!"
 ```
 
+
+
+---
+
 ### 2. Linux & Scripting Basics
 
 - Created a folder `scripts/` in the repo.
@@ -48,6 +52,12 @@ echo "Disk usage (in human readable format):"
 df -h
 echo "------END------"
 ```
+
+
+
+
+
+---
 
 ### 3. Docker Basics
 
@@ -70,6 +80,12 @@ docker build -t devops-intern-hello:latest .
 docker run -d --name my-sample-app1 devops-intern-hello:latest
 docker logs 1702db8d0f66dd72b980
 ```
+
+
+
+
+
+---
 
 ### 4. CI/CD with GitHub Actions
 
@@ -107,6 +123,10 @@ jobs:
       - name: Run hello.py
         run: python hello.py
 ```
+
+
+
+---
 
 ### 5. Job Deployment with Nomad
 
@@ -152,6 +172,12 @@ print("Hello DevOps!")
 while True:
   time.sleep(60)
 ```
+
+
+
+
+
+---
 
 ### 6. Monitoring with Grafana Loki
 
