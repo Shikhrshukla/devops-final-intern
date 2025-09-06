@@ -24,8 +24,8 @@ print("Hello, DevOps!")
 ```
 
 ```shell
-# hello.py
-print("Hello, DevOps!")
+# hello.sh
+echo "Hello, DevOps!"
 ```
 
 ### 2. Linux & Scripting Basics
