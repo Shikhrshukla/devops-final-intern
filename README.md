@@ -91,6 +91,30 @@ jobs:
 nomad job run nomad/hello.nomad
 ```
 
+**Nomad file:**
+
+```yaml
+job "hello" {
+  datacenters = ["dc1"]
+  type        = "service"
+
+  group "hello-group" {
+    task "hello-task" {
+      driver = "docker"
+
+      config {
+        image = "shikhrshukla/devops-intern-hello:latest"
+      }
+
+      resources {
+        cpu    = 100
+        memory = 128
+      }
+    }
+  }
+}
+```
+
 ### 6. Monitoring with Grafana Loki
 
 - Configured Loki using a local Docker container.
