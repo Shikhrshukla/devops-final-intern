@@ -23,6 +23,11 @@ The goal of this project is to build and document a DevOps workflow using open-s
 print("Hello, DevOps!")
 ```
 
+```shell
+# hello.py
+print("Hello, DevOps!")
+```
+
 ### 2. Linux & Scripting Basics
 
 - Created a folder `scripts/` in the repo.
