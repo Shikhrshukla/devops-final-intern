@@ -55,6 +55,7 @@ echo "------END------"
 - Container runs `python hello.py` on startup.
 - Built and ran the container locally:
 
+**Dockerfile:**
 ```Dockerfile
 FROM python:3.11-slim
 WORKDIR /app
@@ -63,6 +64,7 @@ RUN chmod +x /app/hello.py
 CMD ["python", "/app/hello.py"]
 ```
 
+**Docker Cmds:**
 ```bash
 docker build -t devops-intern-hello:latest .
 docker run -d --name my-sample-app1 devops-intern-hello:latest
