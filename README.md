@@ -104,6 +104,7 @@ docker logs 1702db8d0f66dd72b980
 
 #### Run
 ```linux
+# Make sure you have installed and configured docker locally
 git clone https://github.com/Shikhrshukla/devops-final-intern.git
 cd devops-intern-final
 docker build -t devops-intern-hello:latest .
@@ -211,6 +212,7 @@ while True:
 
 #### Run
 ```linux
+# Make sure you have installed and configured both nomad & docker locally
 git clone https://github.com/Shikhrshukla/devops-final-intern.git
 cd devops-intern-final/nomad
 nomad job run hello.nomad
@@ -290,13 +292,13 @@ cd devops-intern-final/monitoring
 
 # start services with detach mode
 docker-compose up -d
-# list running containers
 
+# list running containers
 docker-compose ps
 # or
 docker ps
 
-# use query for container logs with limit 5
+# use query to get container logs with limit 5
 curl "http://localhost:3100/loki/api/v1/query_range?query=%7Bjob%3D%22docker%22%7D&limit=5"
 ```
 ---
