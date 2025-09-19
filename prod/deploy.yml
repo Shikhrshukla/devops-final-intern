@@ -5,7 +5,7 @@ metadata:
     app: mydp1
   name: mydp
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       app: mydp1
@@ -16,5 +16,5 @@ spec:
         app: mydp1
     spec:
       containers:
-      - image: vimal13/apache-webserver-php
+      - image: shikhrshukla/devops:apache-webserver-php-2
         name: php-app
