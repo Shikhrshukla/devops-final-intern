@@ -16,5 +16,5 @@ spec:
         app: mydp1
     spec:
       containers:
-        - image: vimal13/apache-webserver-php
+      - image: vimal13/apache-webserver-php
         name: php-app
