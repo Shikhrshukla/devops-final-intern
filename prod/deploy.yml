@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   labels:
     app: mydp1
-  name: mydp1
+  name: mydp
 spec:
   replicas: 4
   selector:
@@ -16,6 +16,5 @@ spec:
         app: mydp1
     spec:
       containers:
-      - image: shikhrshukla/devops:apache-webserver-php-2
+        - image: vimal13/apache-webserver-php
         name: php-app
-        resources: {}
