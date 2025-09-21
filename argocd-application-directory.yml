@@ -9,8 +9,9 @@ spec:
     namespace: default
   source:
     directory:
-      include: "{deploy.yml}"
-      exclude: "{service.yml}"   
+      recurse: true
+     # include: "{deploy.yml}"
+     # exclude: "{service.yml}"   
     repoURL: https://github.com/Shikhrshukla/devops-final-intern.git
     path: prod
     targetRevision: main
