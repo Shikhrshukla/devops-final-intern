@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myapp1
+spec:
+  project: default
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  source:
+    directory:
+      include: "{deploy.yml}"
+      exclude: "{service.yml}"   
+    repoURL: https://github.com/Shikhrshukla/devops-final-intern.git
+    path: prod
+    targetRevision: main
