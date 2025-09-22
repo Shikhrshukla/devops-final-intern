@@ -7,6 +7,8 @@ spec:
   source:
     helm:
       releaseName: helmapp1
+      valueFiles:
+        - custom_values.yml
     repoURL: https://github.com/Shikhrshukla/devops-final-intern.git
     path: helm/mychart
     targetRevision: main

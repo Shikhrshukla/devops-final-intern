@@ -1,0 +1,3 @@
+replicaCount: "3"
+image.repository: "vimal13/apache-webserver-php"
+image.tag: "latest"

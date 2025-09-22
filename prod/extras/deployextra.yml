@@ -21,4 +21,3 @@ spec:
       - image: httpd
         name: httpd
         resources: {}
-status: {}
