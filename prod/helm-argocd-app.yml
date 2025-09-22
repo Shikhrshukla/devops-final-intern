@@ -5,6 +5,8 @@ metadata:
 spec:
   project: default
   source:
+    helm:
+      releaseName: helmapp1
     repoURL: https://github.com/Shikhrshukla/devops-final-intern.git
     path: helm/mychart
     targetRevision: main
