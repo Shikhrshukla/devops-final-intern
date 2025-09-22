@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: myhelmapp
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Shikhrshukla/devops-final-intern.git
+    path: helm/mychart
+    targetRevision: main
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
